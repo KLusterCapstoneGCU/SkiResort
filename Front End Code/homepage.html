@@ -10,7 +10,7 @@
     <!-- Add your Vue.js code here -->
     <div id="app">
         <div id="image-container">
-            <a href="#"><img src="skier.png" alt="Button 1" class="button"></a>
+            <a href="weather.html"><img src="snowcloud.png" alt="Button 1" class="button"></a>
             <img src="logo.png" alt="Button 2" class="img">
             <a href="#"><img src="boarder.png" alt="Button 3" class="button"></a>
         </div>          
@@ -23,29 +23,49 @@
                 Choose Powder Kings as your lift ticket pricing partner and let us help you take your resort to new heights.
             </p>
         </div>
+
         <div class="carousel-container">
+            <div class="testimonial-heading">
+                <h2 style="font-size: 20px;">What our clients have to say</h2>
+            </div>
             <div class="carousel-text">
-                <div class="carousel-item active">
-                    <h3>Customized Pricing Strategies</h3>
-                    <p>Our team will work with your resort to develop pricing strategies that are tailored to your specific needs and goals.</p>
-                </div>
-                <div class="carousel-item">
-                    <h3>Maximize Revenue</h3>
-                    <p>Using data-driven pricing strategies, we can help your resort maximize revenue and achieve its financial goals.</p>
-                </div>
-                <div class="carousel-item">
-                    <h3>Expert Analysis</h3>
-                    <p>Our team of experts has years of experience in the ski industry and can provide in-depth analysis and insights to help your resort succeed.</p>
+                <div v-for="(item, index) in items" :key="index" :class="{ 'carousel-item': true, 'active': index === currentItem }">
+                    <h3>{{ item.title }}</h3>
+                    <p>{{ item.description }}</p>
                 </div>
             </div>
             <div class="carousel-buttons">
-                <span class="carousel-button active" @click="currentItem = 0"></span>
-                <span class="carousel-button" @click="currentItem = 1"></span>
-                <span class="carousel-button" @click="currentItem = 2"></span>
+                <span v-for="(item, index) in items" :key="index" :class="{ 'carousel-button': true, 'active': index === currentItem }" @click="currentItem = index"></span>
             </div>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <script src="app.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                items: [
+                    {
+                        title: 'Copper Mountain',
+                        description: 'I was blown away by the team at Powder Kings. Their data-driven approach to lift ticket pricing helped our resort achieve record revenue this past season. They truly understand the ski industry and I would recommend them to any resort looking to improve their bottom line.'
+                    },
+                    {
+                        title: 'Vail Resorts',
+                        description: 'Choosing Powder Kings was the best decision we made for our resort. Their customized pricing strategies were tailored to our unique needs and goals, and their team of experts provided invaluable insights that helped us succeed. Thanks to Powder Kings, we are confident that we will have a successful future.'
+                    },
+                    {
+                        title: 'Snowbowl Ski Resort',
+                        description: 'Powder Kings transformed our resort\'s pricing strategy. We were struggling to find the right balance between revenue and affordability for our guests, but with their help, we found the sweet spot. Their expertise and dedication to our success made all the difference, and we can\'t imagine working with anyone else.'
+                    }
+                ],
+                currentItem: 0
+            },
+            created() {
+                setInterval(() => {
+                    this.currentItem = (this.currentItem + 1) % this.items.length;
+                }, 5000);
+            }
+        });
+    </script>
 </body>
 </html>
