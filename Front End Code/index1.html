@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>PeakFare Solutions</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.min.js"></script>
+    <style>
+        body {
+            font-family: sans-serif;
+        }
+
+        h1 {
+            font-size: 2em;
+            font-weight: bold;
+        }
+
+        h2 {
+            font-size: 1.5em;
+        
+            font-weight: bold;
+        }
+
+        h3 {
+            font-size: 1em;
+            font-weight: bold;
+        }
+
+        p {
+            font-size: 0.9em;
+        }
+
+        button {
+            font-size: 0.9em;
+            background-color: #b5803f;
+            color: white;
+            border: 0;
+            padding: 0.5em;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <h1>PeakFare Solutions</h1>
+        <p>This is a basic "add to cart" feature that may have relevance to the final product.</p>
+        
+        <p>&nbsp</p>
+        <p>&nbsp</p>
+        <p>Below is an input box.</p>
+        <input />
+        <p>&nbsp</p>
+        <p>&nbsp</p>
+
+        <h2>Featured Products</h2>
+        <div v-for="product in products" :key="product.id">
+            <h3>{{ product.name }}</h3>
+            <p>{{ product.description }}</p>
+            <button v-on:click="addToCart(product)">Add to Cart</button>
+        </div>
+
+        <h2>Cart</h2>
+        <div v-if="cart.length">
+            <div v-for="item in cart"
+
+                :key="item.id">
+                <p>{{item.name}} - {{item.quantity}}</p>
+            </div>
+            <button v-on:click="checkout()">Checkout</button>
+        </div>
+        <p v-else>Your cart is empty.</p>
+<div> 
+    </div>
+
+    <script>
+
+
+        document.addEventListener('DOMContentLoaded', function() {
+            let buttons = document.getElementsByTagName('button');
+            for (let i = 0; i < buttons.length; i++) {
+                buttons[i].addEventListener('mouseover', function() {
+                    this.style.backgroundColor = '#7f8c8d';
+                });
+                buttons[i].addEventListener('mouseout', function() {
+                    this.style.backgroundColor = '#3f51b5';
+                });
+            }
+        });
+
+
+        const app = new Vue({
+            el: '#app',
+            data: {
+                products: [{
+                        id: 1,
+                        name: 'Product 1',
+                        description: 'This is the description for product 1.'
+                    }, {
+                        id: 2,
+                        name: 'Product 2',
+                        description: 'This is the description for product 2.'
+                    }, {
+                        id: 3,
+                        name: 'Product 3',
+                        description: 'This is the description for product 3.'
+                    }
+                ],
+                cart: []
+            },
+            methods: {
+                addToCart(product) {
+                    let cartItem = this.cart.find(item => item.id === product.id);
+                    if (cartItem) {
+                        cartItem.quantity++;
+                    } else {
+                        this.cart.push({
+                            id: product.id,
+                            name: product.name,
+                            quantity: 1
+                        });
+                    }
+                },
+                checkout() {
+                    alert('Checkout successful!');
+                    this.cart = [];
+                }
+            }
+        })
+    </script>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+</body>
+
+</html>

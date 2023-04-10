@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Homepage</title>
+    <!-- Add your CSS stylesheet here -->
+    <link rel="stylesheet" type="text/css" href="style.css">
+    
+</head>
+<body>
+    <!-- Add your Vue.js code here -->
+    <div id="app">
+        <div id="image-container">
+            <a href="#"><img src="skier.png" alt="Button 1" class="button"></a>
+            <img src="logo.png" alt="Button 2" class="img">
+            <a href="#"><img src="boarder.png" alt="Button 3" class="button"></a>
+        </div>          
+        <img src="skiMtns.png" alt="Image Placeholder" class="center">
+        <div class="paragraph-container">
+            <p>
+                At Powder Kings, we understand the challenges that ski resorts face when setting lift ticket prices. That's why we've dedicated ourselves to helping resorts make data-driven decisions to optimize pricing and maximize revenue.<br></br>
+                Our team of experts has years of experience in the ski industry and we're passionate about helping resorts succeed. We believe that our love of the mountains and our commitment to using data to drive decisions make us the perfect partner for ski resorts looking to improve their bottom line.<br></br>
+                We work closely with our clients to understand their unique challenges and develop customized pricing strategies that work for their specific needs. Our goal is to help ski resorts make the most of every season and provide a great experience for skiers and snowboarders alike.
+                Choose Powder Kings as your lift ticket pricing partner and let us help you take your resort to new heights.
+            </p>
+        </div>
+        <div class="carousel-container">
+            <div class="carousel-text">
+                <div class="carousel-item active">
+                    <h3>Customized Pricing Strategies</h3>
+                    <p>Our team will work with your resort to develop pricing strategies that are tailored to your specific needs and goals.</p>
+                </div>
+                <div class="carousel-item">
+                    <h3>Maximize Revenue</h3>
+                    <p>Using data-driven pricing strategies, we can help your resort maximize revenue and achieve its financial goals.</p>
+                </div>
+                <div class="carousel-item">
+                    <h3>Expert Analysis</h3>
+                    <p>Our team of experts has years of experience in the ski industry and can provide in-depth analysis and insights to help your resort succeed.</p>
+                </div>
+            </div>
+            <div class="carousel-buttons">
+                <span class="carousel-button active" @click="currentItem = 0"></span>
+                <span class="carousel-button" @click="currentItem = 1"></span>
+                <span class="carousel-button" @click="currentItem = 2"></span>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

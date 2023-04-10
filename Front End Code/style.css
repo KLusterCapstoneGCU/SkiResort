@@ -1,0 +1,100 @@
+#image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 20px 0;
+    gap: 20px;
+}
+
+.button {
+    height: 90px;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+}
+
+img.button:hover {
+    opacity: 0.8;
+    transform: scale(1.1); /* add a scale transform on hover */
+}
+
+img.center {
+    display: block;
+    margin: 0 auto;
+    width: 100%; /* make the image span the whole screen */
+    /* round the top corners */
+    border-top-left-radius: 17px;
+    border-top-right-radius: 0px;
+    /* round the bottom corners */
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 17px;
+
+}
+
+#app {
+    text-align: center;
+}
+
+.img {
+    width: 30%;
+    height: 30%;
+    object-fit: cover;
+}
+
+.paragraph-container {
+    margin: 20px 0px 0px 20px;
+    max-width: 600px;
+    position: relative;
+}
+
+.paragraph-container::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: -2%; /* adjust the value as needed */
+    height: 100%;
+    border-right: 2px solid black; /* or any color you want */
+}
+
+
+.paragraph-container p {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    text-align: justify;
+    margin: 0 auto;
+}
+
+
+.carousel-container {
+    margin: 20px 20px 0px 20px;
+    width: 50%;
+    float: right;
+}
+
+.carousel-container .carousel-item {
+    display: none;
+    text-align: center;
+    padding: 20px;
+    background-color: #f2f2f2;
+}
+
+.carousel-container .active {
+    display: block;
+}
+
+.carousel-nav {
+    text-align: center;
+}
+
+.carousel-nav button {
+    margin: 10px;
+    padding: 5px 10px;
+    border: none;
+    background-color: #ddd;
+    cursor: pointer;
+}
+
+.carousel-nav button.active {
+    background-color: #bbb;
+}
