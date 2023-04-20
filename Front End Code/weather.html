@@ -1,42 +1,37 @@
+<!-- HTML CODE -->
 <!DOCTYPE html>
-<html>
-<head>
+<html lang="en">
+  <head>
     <meta charset="UTF-8">
-    <title>Current Weather</title>
-</head>
-<body>
-    <h1>Current Weather</h1>
-    <h2>Enter your City Name:</h2>
-    <form>
-        <input type="text" id="cityName" name="cityName">
-        <input type="submit" value="Get Weather" onclick="getWeather()">
-    </form>
-    <p id="weather"></p>
-    <script>
-        // Function to get the weather for a city
-        function getWeather() {
-            // Get the city name from the input field
-            const cityName = document.getElementById("cityName").value;
+    <title>Weather</title>
+    <link rel="stylesheet" href="font/Rimouski.css">
+    <link rel="stylesheet" href="weather.css">
+  </head>
+  <body>
+    <div class="container">
+      <div class="app-title">
+        <p>Weather</p>
+      </div>
+      <div class="notification"></div>
+      <div class="weather-container"></div>
+      <div class="weather-icon">
+        <img src="icons/unknown.png" alt="">
+      </div>
+      <div class="temperature-value">
+        <p>- ° <span>
+            <Canvas></Canvas>
+          </span>
+        </p>
+      </div>
+      <div class="temperature-description">
+        <p>-</p>
+      </div>
+      <div class="location">
+        <p>-</p>
+      </div>
+    </div>
+    </div>
 
-            // Make an API call to OpenWeatherMap to get the weather for the city
-            const apiKey = "726771383d7bb461694c50ec2c01ceba";
-            const url = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=metric`;
-            fetch(url)
-                .then(response => response.json())
-                .then(data => {
-                    // Display the weather information
-                    const weatherDescription = data.weather[0].description;
-                    const temperature = data.main.temp;
-                    const feelsLike = data.main.feels_like;
-                    const humidity = data.main.humidity;
-                    const windSpeed = data.wind.speed;
-                    const city = data.name;
-                    const country = data.sys.country;
-                    const weatherText = `The weather in ${city}, ${country} is currently ${weatherDescription}. The temperature is ${temperature}°C, but it feels like ${feelsLike}°C. The humidity is ${humidity}% and the wind speed is ${windSpeed} m/s.`;
-                    document.getElementById("weather").innerHTML = weatherText;
-                })
-                .catch(error => console.error(error));
-        }
-    </script>
-</body>
+    <script src="weather.js"></script>
+  </body>
 </html>
