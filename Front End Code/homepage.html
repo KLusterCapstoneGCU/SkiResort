@@ -1,71 +1,64 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <title>My Homepage</title>
     <!-- Add your CSS stylesheet here -->
     <link rel="stylesheet" type="text/css" href="style.css">
-    
-</head>
-<body>
+  </head>
+  <body>
     <!-- Add your Vue.js code here -->
     <div id="app">
-        <div id="image-container">
-            <a href="weather.html"><img src="snowcloud.png" alt="Button 1" class="button"></a>
-            <img src="logo.png" alt="Button 2" class="img">
-            <a href="#"><img src="boarder.png" alt="Button 3" class="button"></a>
-        </div>          
-        <img src="skiMtns.png" alt="Image Placeholder" class="center">
-        <div class="paragraph-container">
-            <p>
-                At Powder Kings, we understand the challenges that ski resorts face when setting lift ticket prices. That's why we've dedicated ourselves to helping resorts make data-driven decisions to optimize pricing and maximize revenue.<br></br>
-                Our team of experts has years of experience in the ski industry and we're passionate about helping resorts succeed. We believe that our love of the mountains and our commitment to using data to drive decisions make us the perfect partner for ski resorts looking to improve their bottom line.<br></br>
-                We work closely with our clients to understand their unique challenges and develop customized pricing strategies that work for their specific needs. Our goal is to help ski resorts make the most of every season and provide a great experience for skiers and snowboarders alike.
-                Choose Powder Kings as your lift ticket pricing partner and let us help you take your resort to new heights.
-            </p>
+      <div id="image-container">
+        <a href="weather.html">
+          <img src="13d.png" alt="Button 1" class="button">
+        </a>
+        <img src="logo.png" alt="Button 2" class="img">
+        <a href="#">
+          <img src="boarder.png" alt="Button 3" class="button">
+        </a>
+      </div>
+      <img src="skiMtns.png" alt="Image Placeholder" class="center">
+      <div class="paragraph-container">
+        <p> At Powder Kings, we understand the challenges that ski resorts face when setting lift ticket prices. That's why we've dedicated ourselves to helping resorts make data-driven decisions to optimize pricing and maximize revenue. <br></br> Our team of experts has years of experience in the ski industry and we're passionate about helping resorts succeed. We believe that our love of the mountains and our commitment to using data to drive decisions make us the perfect partner for ski resorts looking to improve their bottom line. <br></br> We work closely with our clients to understand their unique challenges and develop customized pricing strategies that work for their specific needs. Our goal is to help ski resorts make the most of every season and provide a great experience for skiers and snowboarders alike. Choose Powder Kings as your lift ticket pricing partner and let us help you take your resort to new heights. </p>
+      </div>
+      <div class="carousel-container">
+        <div class="testimonial-heading">
+          <h2 style="font-size: 20px;">What our clients have to say</h2>
         </div>
-
-        <div class="carousel-container">
-            <div class="testimonial-heading">
-                <h2 style="font-size: 20px;">What our clients have to say</h2>
-            </div>
-            <div class="carousel-text">
-                <div v-for="(item, index) in items" :key="index" :class="{ 'carousel-item': true, 'active': index === currentItem }">
-                    <h3>{{ item.title }}</h3>
-                    <p>{{ item.description }}</p>
-                </div>
-            </div>
-            <div class="carousel-buttons">
-                <span v-for="(item, index) in items" :key="index" :class="{ 'carousel-button': true, 'active': index === currentItem }" @click="currentItem = index"></span>
-            </div>
+        <div class="carousel-text">
+          <div v-for="(item, index) in items" :key="index" :class="{ 'carousel-item': true, 'active': index === currentItem }">
+            <h3>{{ item.title }}</h3>
+            <p>{{ item.description }}</p>
+          </div>
         </div>
+        <div class="carousel-buttons">
+          <span v-for="(item, index) in items" :key="index" :class="{ 'carousel-button': true, 'active': index === currentItem }" @click="currentItem = index"></span>
+        </div>
+      </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script>
-        new Vue({
-            el: '#app',
-            data: {
-                items: [
-                    {
-                        title: 'Copper Mountain',
-                        description: 'I was blown away by the team at Powder Kings. Their data-driven approach to lift ticket pricing helped our resort achieve record revenue this past season. They truly understand the ski industry and I would recommend them to any resort looking to improve their bottom line.'
-                    },
-                    {
-                        title: 'Vail Resorts',
-                        description: 'Choosing Powder Kings was the best decision we made for our resort. Their customized pricing strategies were tailored to our unique needs and goals, and their team of experts provided invaluable insights that helped us succeed. Thanks to Powder Kings, we are confident that we will have a successful future.'
-                    },
-                    {
-                        title: 'Snowbowl Ski Resort',
-                        description: 'Powder Kings transformed our resort\'s pricing strategy. We were struggling to find the right balance between revenue and affordability for our guests, but with their help, we found the sweet spot. Their expertise and dedication to our success made all the difference, and we can\'t imagine working with anyone else.'
-                    }
-                ],
-                currentItem: 0
-            },
-            created() {
-                setInterval(() => {
-                    this.currentItem = (this.currentItem + 1) % this.items.length;
-                }, 5000);
-            }
-        });
+      new Vue({
+        el: '#app',
+        data: {
+          items: [{
+            title: 'Copper Mountain',
+            description: 'I was blown away by the team at Powder Kings. Their data-driven approach to lift ticket pricing helped our resort achieve record revenue this past season. They truly understand the ski industry and I would recommend them to any resort looking to improve their bottom line.'
+          }, {
+            title: 'Vail Resorts',
+            description: 'Choosing Powder Kings was the best decision we made for our resort. Their customized pricing strategies were tailored to our unique needs and goals, and their team of experts provided invaluable insights that helped us succeed. Thanks to Powder Kings, we are confident that we will have a successful future.'
+          }, {
+            title: 'Snowbowl Ski Resort',
+            description: 'Powder Kings transformed our resort\'s pricing strategy. We were struggling to find the right balance between revenue and affordability for our guests, but with their help, we found the sweet spot. Their expertise and dedication to our success made all the difference, and we can\'t imagine working with anyone else.'
+          }],
+          currentItem: 0
+        },
+        created() {
+          setInterval(() => {
+            this.currentItem = (this.currentItem + 1) % this.items.length;
+          }, 5000);
+        }
+      });
     </script>
-</body>
+  </body>
 </html>

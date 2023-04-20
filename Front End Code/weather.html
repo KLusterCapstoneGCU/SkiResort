@@ -1,37 +1,66 @@
-<!-- HTML CODE -->
+<!-- Define the document type -->
 <!DOCTYPE html>
+
+<!-- Start the HTML document and set the language to English -->
 <html lang="en">
+
   <head>
+    <!-- Define the character encoding and title of the document -->
     <meta charset="UTF-8">
     <title>Weather</title>
+
+    <!-- Import custom fonts and stylesheet for weather app -->
     <link rel="stylesheet" href="font/Rimouski.css">
     <link rel="stylesheet" href="weather.css">
   </head>
+
   <body>
+    <!-- Add button to navigate back to homepage -->
+    <button onclick="window.location.href='homepage.html'">Go to homepage</button>
+
+    <!-- Define the main container for the weather app -->
     <div class="container">
+
+      <!-- Define the title for the weather app -->
       <div class="app-title">
         <p>Weather</p>
       </div>
+
+      <!-- Define the container for notifications -->
       <div class="notification"></div>
+
+      <!-- Define the container for weather information -->
       <div class="weather-container"></div>
+
+      <!-- Define the container for weather icon -->
       <div class="weather-icon">
         <img src="icons/unknown.png" alt="">
       </div>
+
+      <!-- Define the container for temperature value -->
       <div class="temperature-value">
         <p>- ° <span>
             <Canvas></Canvas>
           </span>
         </p>
       </div>
+
+      <!-- Define the container for temperature description -->
       <div class="temperature-description">
         <p>-</p>
       </div>
+
+      <!-- Define the container for location information -->
       <div class="location">
         <p>-</p>
       </div>
-    </div>
-    </div>
 
+    </div>
+    <!-- End main container -->
+
+    <!-- Import the JavaScript file for weather app functionality -->
     <script src="weather.js"></script>
   </body>
+
 </html>
+<!-- End HTML document -->

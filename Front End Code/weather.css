@@ -1,22 +1,24 @@
+/* Global style */
 *{
     font-family: "Rimouski";
 }
 
+/* Body style */
 body{
     background-color: #293251;
 }
 
+/* Main container style */
 .container{
     width: 300px;    
     background-color: rgb(255, 255, 255);
-    
     display: block;
     margin: 0 auto;
-    
     border-radius: 10px;
     padding-bottom : 50px;
 }
 
+/* Title style */
 .app-title{
     width: 300px;
     height: 50px;
@@ -31,6 +33,7 @@ body{
     color: #293251;
 }
 
+/* Notification style */
 .notification{
     background-color: #f8d7da;
     display: none;
@@ -44,12 +47,14 @@ body{
     padding: 10px 0;
 }
 
+/* Weather container style */
 .weather-container{
     width: 300px;
     height: 260px;
     background-color: #F4F9FF;
 }
 
+/* Weather icon style */
 .weather-icon{
     width: 300px;
     height: 128px;
@@ -60,6 +65,7 @@ body{
     margin: 0 auto;
 }
 
+/* Temperature value style */
 .temperature-value{
     width: 300px;
     height:60px;
@@ -74,15 +80,12 @@ body{
     cursor: pointer;
 }
 
-.temperature-value p:hover{
-    
-}
-
 .temperature-value span{
     color: #293251;
     font-size: 0.5em;
 }
 
+/* Temperature description style */
 .temperature-description{
     
 }
@@ -95,6 +98,7 @@ body{
     font-size: 1.2em;
 }
 
+/* Location style */
 .location{
     
 }
@@ -106,6 +110,3 @@ body{
     text-align: center;
     font-size: 0.8em;
 }
-
-
-
